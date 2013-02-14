@@ -18,6 +18,9 @@
 		D12B34DF16CD5F2C0000F152 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D12B34DE16CD5F2C0000F152 /* Default-568h@2x.png */; };
 		D12B34E216CD5F2C0000F152 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12B34E016CD5F2C0000F152 /* MainStoryboard.storyboard */; };
 		D12B34E516CD5F2C0000F152 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B34E416CD5F2C0000F152 /* ViewController.m */; };
+		D12B34EF16CD5F8E0000F152 /* CrashSimulatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B34ED16CD5F8E0000F152 /* CrashSimulatorViewController.m */; };
+		D12B34F016CD5F8E0000F152 /* CrashSimulatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12B34EE16CD5F8E0000F152 /* CrashSimulatorViewController.xib */; };
+		D12B34F416CD5FC20000F152 /* CrashSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B34F316CD5FC20000F152 /* CrashSimulator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,11 @@
 		D12B34E116CD5F2C0000F152 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D12B34E316CD5F2C0000F152 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D12B34E416CD5F2C0000F152 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D12B34EC16CD5F8E0000F152 /* CrashSimulatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrashSimulatorViewController.h; path = CrashSimulator/CrashSimulatorViewController.h; sourceTree = "<group>"; };
+		D12B34ED16CD5F8E0000F152 /* CrashSimulatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrashSimulatorViewController.m; path = CrashSimulator/CrashSimulatorViewController.m; sourceTree = "<group>"; };
+		D12B34EE16CD5F8E0000F152 /* CrashSimulatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CrashSimulatorViewController.xib; path = CrashSimulator/CrashSimulatorViewController.xib; sourceTree = "<group>"; };
+		D12B34F216CD5FC20000F152 /* CrashSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrashSimulator.h; path = CrashSimulator/CrashSimulator.h; sourceTree = "<group>"; };
+		D12B34F316CD5FC20000F152 /* CrashSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrashSimulator.m; path = CrashSimulator/CrashSimulator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		D12B34BC16CD5F2C0000F152 = {
 			isa = PBXGroup;
 			children = (
+				D12B34F116CD5FA50000F152 /* CrashSimulator */,
 				D12B34CE16CD5F2C0000F152 /* CrashSimulatorDemo */,
 				D12B34C716CD5F2C0000F152 /* Frameworks */,
 				D12B34C616CD5F2C0000F152 /* Products */,
@@ -105,6 +114,18 @@
 				D12B34DE16CD5F2C0000F152 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D12B34F116CD5FA50000F152 /* CrashSimulator */ = {
+			isa = PBXGroup;
+			children = (
+				D12B34EC16CD5F8E0000F152 /* CrashSimulatorViewController.h */,
+				D12B34ED16CD5F8E0000F152 /* CrashSimulatorViewController.m */,
+				D12B34EE16CD5F8E0000F152 /* CrashSimulatorViewController.xib */,
+				D12B34F216CD5FC20000F152 /* CrashSimulator.h */,
+				D12B34F316CD5FC20000F152 /* CrashSimulator.m */,
+			);
+			name = CrashSimulator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +184,7 @@
 				D12B34DD16CD5F2C0000F152 /* Default@2x.png in Resources */,
 				D12B34DF16CD5F2C0000F152 /* Default-568h@2x.png in Resources */,
 				D12B34E216CD5F2C0000F152 /* MainStoryboard.storyboard in Resources */,
+				D12B34F016CD5F8E0000F152 /* CrashSimulatorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +198,8 @@
 				D12B34D516CD5F2C0000F152 /* main.m in Sources */,
 				D12B34D916CD5F2C0000F152 /* AppDelegate.m in Sources */,
 				D12B34E516CD5F2C0000F152 /* ViewController.m in Sources */,
+				D12B34EF16CD5F8E0000F152 /* CrashSimulatorViewController.m in Sources */,
+				D12B34F416CD5FC20000F152 /* CrashSimulator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
