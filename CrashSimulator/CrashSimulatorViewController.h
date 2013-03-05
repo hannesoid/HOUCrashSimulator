@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CrashSimulatorViewController : UITableViewController
+@interface CrashSimulatorViewController: UIViewController<UITableViewDataSource, UITableViewDelegate>
+
++ (instancetype) crashSimulatorViewController;
 
 @end

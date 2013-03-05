@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CrashSection.h"
+#import "Crash.h"
 
 @interface CrashSimulator : NSObject
 
 @property (nonatomic, assign) BOOL blockWhenGoingToBackground;
 
 @property (nonatomic, assign) BOOL keepRunningTimer;
+
+@property (strong, nonatomic) NSMutableArray *crashSections;
 
 - (void)simulateSelectorException;
 
@@ -24,7 +28,7 @@
 
 - (void)simulateBadMemoryAccess;
 
-- (void)simulateUIOnWrongThread:(UIButton *)button;
+- (void)simulateUIOnWrongThread;
 
 - (void)simulateAssertionError;
 

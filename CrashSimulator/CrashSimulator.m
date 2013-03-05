@@ -23,9 +23,63 @@
         _timerCount = 0;
         _blockWhenGoingToBackground = NO;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        
+
+        _crashSections = [[NSMutableArray alloc] init];
+        __weak CrashSimulator *this = self;
+        
+
+        // init _crashSections...
+        [_crashSections addObject:
+         [[CrashSection alloc] initWithTitle:@"Exceptions" crashes:@[
+          
+          [[Crash alloc] initWithTitle:@"Unknown Selector" crashBlock:^{
+             [this simulateSelectorException];}],
+          
+          [[Crash alloc] initWithTitle:@"Out of Bounds" crashBlock:^{
+             [this simulateOutOfBoundsException];}],
+          
+          [[Crash alloc] initWithTitle:@"NSAssertion Error" crashBlock:^{
+             [this simulateAssertionError];}]
+
+          ]]];
+        
+        
+        [_crashSections addObject:
+         [[CrashSection alloc] initWithTitle:@"Memory" crashes:@[
+          
+          [[Crash alloc] initWithTitle:@"Bad Access" crashBlock:^{
+             [this simulateBadMemoryAccess];}],
+          
+          [[Crash alloc] initWithTitle:@"Out of Bounds" crashBlock:^{
+             [this simulateOutOfBoundsException];}],
+          
+          ]]];
+        
+        [_crashSections addObject:
+         [[CrashSection alloc] initWithTitle:@"Blocking" crashes:@[
+          
+          [[Crash alloc] initWithTitle:@"Deadlock on Main" crashBlock:^{
+             [this simulateDeadlockOnMain];}],
+          
+          [[Crash alloc] initWithTitle:@"Infinite loop on Main" crashBlock:^{
+             [this simulateBlockedMainthread];}],
+          
+          ]]];
+        
+        [_crashSections addObject:
+         [[CrashSection alloc] initWithTitle:@"Threading" crashes:@[
+          
+          [[Crash alloc] initWithTitle:@"UIKit on wrong Thread" crashBlock:^{
+             [this simulateUIOnWrongThread];}],
+          
+          ]]];
+
+        
     }
     return self;
 }
+
 
 - (void)simulateSelectorException {
     [self performSelector:@selector(nonExistingSelector) withObject:self];
@@ -57,22 +111,25 @@
 #pragma clang diagnostic pop    
 }
 
-- (void)simulateUIOnWrongThread:(UIButton *)button {
+- (void)simulateUIOnWrongThread {
+    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
     
-    static NSString *textBefore;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        textBefore =  button.titleLabel.text;
-    });
+    NSString *textBefore = @"runs";
     
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0,0,200,50)];
+    label.center = CGPointMake(CGRectGetMidX(mainWindow.bounds), CGRectGetMidY(mainWindow.bounds));
+    [mainWindow addSubview:label];
+
+    dispatch_time_t popTime;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     for (int i = 0; i < 300; i++) {
         double delayInSeconds = 0.01 * (double)i;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_after(popTime, queue, ^(void){
-            button.titleLabel.text = [NSString stringWithFormat:@"%@: %d", textBefore, i];
+        popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, queue, ^{
+            label.text = [NSString stringWithFormat:@"%@: %d", textBefore, i];
         });
     }
+    dispatch_after(popTime, queue, ^{[label removeFromSuperview];});
 }
 
 - (void)simulateAssertionError {
