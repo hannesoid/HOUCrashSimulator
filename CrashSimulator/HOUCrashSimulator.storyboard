@@ -7,7 +7,7 @@
         <!--Crash Simulator View Controller-->
         <scene sceneID="gZ0-wZ-IoG">
             <objects>
-                <viewController id="KMI-pi-Xj9" customClass="CrashSimulatorViewController" sceneMemberID="viewController">
+                <viewController id="KMI-pi-Xj9" customClass="HOUCrashSimulatorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d3t-hr-XtN">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X3w-7U-2ck">
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.88" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="Crash Simulator">
                                     <color key="titleColor" red="0.99754101039999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,8 +74,8 @@
         </scene>
     </scenes>
     <classes>
-        <class className="CrashSimulatorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrashSimulatorViewController.h"/>
+        <class className="HOUCrashSimulatorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HOUCrashSimulatorViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="mainToggleButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>

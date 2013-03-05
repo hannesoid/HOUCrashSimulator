@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CrashSimulatorViewController.h"
+#import "HOUCrashSimulatorViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

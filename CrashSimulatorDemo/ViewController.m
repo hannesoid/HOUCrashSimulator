@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CrashSimulatorViewController.h"
+#import "HOUCrashSimulatorViewController.h"
 
 @interface ViewController ()
 
@@ -19,9 +19,10 @@
 {
     [super viewDidLoad];
     
-    CrashSimulatorViewController *crashSimulatorViewController = [CrashSimulatorViewController crashSimulatorViewController];
+    HOUCrashSimulatorViewController *crashSimulatorViewController = [HOUCrashSimulatorViewController crashSimulatorViewController];
     [self addChildViewController:crashSimulatorViewController];
     [self.view addSubview:crashSimulatorViewController.view];
+    
     [crashSimulatorViewController didMoveToParentViewController:self];
 
     

@@ -1,14 +1,14 @@
 //
-//  CrashSection.m
-//  CrashSimulatorDemo
+//  HOUCrashSection.m
+//  HOUCrashSimulatorDemo
 //
 //  Created by Hannes Oud on 05.03.13.
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
-#import "CrashSection.h"
+#import "HOUCrashSection.h"
 
-@implementation CrashSection
+@implementation HOUCrashSection
 - (id)initWithTitle:(NSString *)title crashes: (NSArray *)crashes
 {
     self = [super init];

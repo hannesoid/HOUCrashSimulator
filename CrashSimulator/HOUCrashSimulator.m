@@ -1,14 +1,14 @@
 //
-//  CrashSimulator.m
-//  CrashSimulatorDemo
+//  HOUCrashSimulator.m
+//  HOUCrashSimulatorDemo
 //
 //  Created by Hannes Oud on 14.02.13.
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
-#import "CrashSimulator.h"
+#import "HOUCrashSimulator.h"
 
-@implementation CrashSimulator {
+@implementation HOUCrashSimulator {
     BOOL _expanded;
     int _timerCount;
     NSTimer *_timer;
@@ -26,51 +26,51 @@
         
 
         _crashSections = [[NSMutableArray alloc] init];
-        __weak CrashSimulator *this = self;
+        __weak HOUCrashSimulator *this = self;
         
 
         // init _crashSections...
         [_crashSections addObject:
-         [[CrashSection alloc] initWithTitle:@"Exceptions" crashes:@[
+         [[HOUCrashSection alloc] initWithTitle:@"Exceptions" crashes:@[
           
-          [[Crash alloc] initWithTitle:@"Unknown Selector" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"Unknown Selector" crashBlock:^{
              [this simulateSelectorException];}],
           
-          [[Crash alloc] initWithTitle:@"Out of Bounds" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"Out of Bounds" crashBlock:^{
              [this simulateOutOfBoundsException];}],
           
-          [[Crash alloc] initWithTitle:@"NSAssertion Error" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"NSAssertion Error" crashBlock:^{
              [this simulateAssertionError];}]
 
           ]]];
         
         
         [_crashSections addObject:
-         [[CrashSection alloc] initWithTitle:@"Memory" crashes:@[
+         [[HOUCrashSection alloc] initWithTitle:@"Memory" crashes:@[
           
-          [[Crash alloc] initWithTitle:@"Bad Access" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"Bad Access" crashBlock:^{
              [this simulateBadMemoryAccess];}],
           
-          [[Crash alloc] initWithTitle:@"Out of Bounds" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"Out of Bounds" crashBlock:^{
              [this simulateOutOfBoundsException];}],
           
           ]]];
         
         [_crashSections addObject:
-         [[CrashSection alloc] initWithTitle:@"Blocking" crashes:@[
+         [[HOUCrashSection alloc] initWithTitle:@"Blocking" crashes:@[
           
-          [[Crash alloc] initWithTitle:@"Deadlock on Main" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"Deadlock on Main" crashBlock:^{
              [this simulateDeadlockOnMain];}],
           
-          [[Crash alloc] initWithTitle:@"Infinite loop on Main" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"Infinite loop on Main" crashBlock:^{
              [this simulateBlockedMainthread];}],
           
           ]]];
         
         [_crashSections addObject:
-         [[CrashSection alloc] initWithTitle:@"Threading" crashes:@[
+         [[HOUCrashSection alloc] initWithTitle:@"Threading" crashes:@[
           
-          [[Crash alloc] initWithTitle:@"UIKit on wrong Thread" crashBlock:^{
+          [[HOUCrash alloc] initWithTitle:@"UIKit on wrong Thread" crashBlock:^{
              [this simulateUIOnWrongThread];}],
           
           ]]];
@@ -116,7 +116,7 @@
     
     NSString *textBefore = @"runs";
     
-    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0,0,200,50)];
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0,0,100,10)];
     label.center = CGPointMake(CGRectGetMidX(mainWindow.bounds), CGRectGetMidY(mainWindow.bounds));
     [mainWindow addSubview:label];
 

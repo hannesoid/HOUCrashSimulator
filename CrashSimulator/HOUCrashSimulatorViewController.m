@@ -1,17 +1,20 @@
 //
-//  CrashSimulatorViewController.m
-//  CrashSimulatorDemo
+//  HOUCrashSimulatorViewController.m
+//  HOUCrashSimulatorDemo
 //
 //  Created by Hannes Oud on 14.02.13.
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
-#import "CrashSimulatorViewController.h"
-#import "CrashSimulator.h"
+#import "HOUCrashSimulatorViewController.h"
+#import "HOUCrashSimulator.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface CrashSimulatorViewController () {
+@interface HOUCrashSimulatorViewController () {
     CGFloat _minimizedHeight;
+    CGFloat _minimizedAlpha;
     CGFloat _maximizedHeight;
+    CGFloat _maximizedAlpha;
     BOOL _maximized;
 }
  
@@ -19,29 +22,38 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) CrashSimulator *crashSimulator;
+@property (strong, nonatomic) HOUCrashSimulator *crashSimulator;
 
 @end
 
-@implementation CrashSimulatorViewController
+@implementation HOUCrashSimulatorViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    _crashSimulator = [[CrashSimulator alloc] init];
+    _crashSimulator = [[HOUCrashSimulator alloc] init];
     
     _minimizedHeight = CGRectGetHeight(self.mainToggleButton.frame);
     _maximizedHeight = _minimizedHeight + CGRectGetHeight(self.tableView.frame);
     _maximized = NO;
+    
+    self.view.layer.borderColor = [[UIColor redColor] CGColor];
+    self.view.layer.borderWidth = 1.f;
+
+    _minimizedAlpha = 0.6f;
+    _maximizedAlpha = 1.f;
+    
     
     [self adjustLayoutToMinimizedOrMaximizedAnimated:NO];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     
-    CGPoint offset = CGPointMake((parent.view.bounds.size.width - self.view.bounds.size.width) / 2.f, 0.f);
-    self.view.frame = CGRectOffset(self.view.bounds, offset.x, offset.y);
+    _maximizedHeight = floorf(MAX(parent.view.bounds.size.height*0.6f,self.view.bounds.size.height));
+    CGSize size = CGSizeMake(floorf(parent.view.bounds.size.width * 0.7f), _maximizedHeight);
+    CGPoint offset = CGPointMake((parent.view.bounds.size.width - size.width) / 2.f, 0.f);
+    self.view.frame = CGRectMake(offset.x, offset.y, size.width, _minimizedHeight);
     
 }
 
@@ -54,6 +66,7 @@
 
 - (void) adjustLayoutToMinimizedOrMaximizedAnimated:(BOOL) animated {
     CGFloat newHeight = _maximized ? _maximizedHeight : _minimizedHeight;
+    self.view.alpha = _maximized ? _maximizedAlpha : _minimizedAlpha;
     
     void (^animation)(void) = ^{
         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, CGRectGetWidth(self.view.frame), newHeight);
@@ -71,21 +84,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return ((CrashSection *) self.crashSimulator.crashSections[section]).crashes.count;
+    return ((HOUCrashSection *) self.crashSimulator.crashSections[section]).crashes.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return ((CrashSection *) self.crashSimulator.crashSections[section]).title;
+    return ((HOUCrashSection *) self.crashSimulator.crashSections[section]).title;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CrashSection *section = ((CrashSection *) self.crashSimulator.crashSections[indexPath.section]);
+    HOUCrashSection *section = ((HOUCrashSection *) self.crashSimulator.crashSections[indexPath.section]);
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"crashCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"crashCell"];
     }
-    Crash *crash = section.crashes[indexPath.row];
+    HOUCrash *crash = section.crashes[indexPath.row];
     cell.textLabel.text = crash.title;
     
     return cell;
@@ -93,12 +106,12 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Crash *crash = ((CrashSection *) self.crashSimulator.crashSections[indexPath.section]).crashes[indexPath.row];
+    HOUCrash *crash = ((HOUCrashSection *) self.crashSimulator.crashSections[indexPath.section]).crashes[indexPath.row];
     crash.crashBlock();
 }
 
 #pragma mark - Constructor
 + (instancetype) crashSimulatorViewController {
-    return [[UIStoryboard storyboardWithName:@"CrashSimulator" bundle:nil] instantiateInitialViewController];
+    return [[UIStoryboard storyboardWithName:@"HOUCrashSimulator" bundle:nil] instantiateInitialViewController];
 }
 @end

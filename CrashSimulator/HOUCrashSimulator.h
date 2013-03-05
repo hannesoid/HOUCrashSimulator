@@ -1,16 +1,16 @@
 //
-//  CrashSimulator.h
-//  CrashSimulatorDemo
+//  HOUCrashSimulator.h
+//  HOUCrashSimulatorDemo
 //
 //  Created by Hannes Oud on 14.02.13.
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "CrashSection.h"
-#import "Crash.h"
+#import "HOUCrashSection.h"
+#import "HOUCrash.h"
 
-@interface CrashSimulator : NSObject
+@interface HOUCrashSimulator : NSObject
 
 @property (nonatomic, assign) BOOL blockWhenGoingToBackground;
 

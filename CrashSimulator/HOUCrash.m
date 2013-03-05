@@ -1,15 +1,15 @@
 //
-//  Crash.m
-//  CrashSimulatorDemo
+//  HOUCrash.m
+//  HOUCrashSimulatorDemo
 //
 //  Created by Hannes Oud on 05.03.13.
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
-#import "Crash.h"
+#import "HOUCrash.h"
 
-@implementation Crash
-- (id)initWithTitle: (NSString *) title crashBlock: (CrashBlock) crashBlock
+@implementation HOUCrash
+- (id)initWithTitle: (NSString *) title crashBlock: (HOUCrashBlock) crashBlock
 {
     self = [super init];
     if (self) {

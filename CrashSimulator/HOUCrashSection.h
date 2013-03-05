@@ -1,15 +1,15 @@
 //
-//  CrashSection.h
-//  CrashSimulatorDemo
+//  HOUCrashSection.h
+//  HOUCrashSimulatorDemo
 //
 //  Created by Hannes Oud on 05.03.13.
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Crash.h"
+#import "HOUCrash.h"
 
-@interface CrashSection : NSObject
+@interface HOUCrashSection : NSObject
 
 @property (nonatomic, strong) NSString *title;
 
