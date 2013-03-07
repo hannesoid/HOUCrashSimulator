@@ -18,11 +18,12 @@
 		D12B34DF16CD5F2C0000F152 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D12B34DE16CD5F2C0000F152 /* Default-568h@2x.png */; };
 		D12B34E216CD5F2C0000F152 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12B34E016CD5F2C0000F152 /* MainStoryboard.storyboard */; };
 		D12B34E516CD5F2C0000F152 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B34E416CD5F2C0000F152 /* ViewController.m */; };
-		D12B34EF16CD5F8E0000F152 /* HOUCrashSimulatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B34ED16CD5F8E0000F152 /* HOUCrashSimulatorViewController.m */; };
-		D12B34F416CD5FC20000F152 /* HOUCrashSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B34F316CD5FC20000F152 /* HOUCrashSimulator.m */; };
-		D132857616E6A0EE002262E7 /* HOUCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D132857516E6A0EE002262E7 /* HOUCrash.m */; };
-		D132857916E6A158002262E7 /* HOUCrashSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D132857816E6A158002262E7 /* HOUCrashSection.m */; };
-		D132857B16E6AE8F002262E7 /* HOUCrashSimulator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132857A16E6AE8F002262E7 /* HOUCrashSimulator.storyboard */; };
+		D191348616E9378E003A74F6 /* HOUActionCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D191347B16E9378E003A74F6 /* HOUActionCrash.m */; };
+		D191348716E9378E003A74F6 /* HOUCrashSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D191347E16E9378E003A74F6 /* HOUCrashSection.m */; };
+		D191348816E9378E003A74F6 /* HOUCrashSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D191348016E9378E003A74F6 /* HOUCrashSimulator.m */; };
+		D191348916E9378E003A74F6 /* HOUCrashSimulator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D191348116E9378E003A74F6 /* HOUCrashSimulator.storyboard */; };
+		D191348A16E9378E003A74F6 /* HOUCrashSimulatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D191348316E9378E003A74F6 /* HOUCrashSimulatorViewController.m */; };
+		D191348B16E9378E003A74F6 /* HOUToggleableCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D191348516E9378E003A74F6 /* HOUToggleableCrash.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,15 +43,18 @@
 		D12B34E116CD5F2C0000F152 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D12B34E316CD5F2C0000F152 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D12B34E416CD5F2C0000F152 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D12B34EC16CD5F8E0000F152 /* HOUCrashSimulatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HOUCrashSimulatorViewController.h; path = CrashSimulator/HOUCrashSimulatorViewController.h; sourceTree = "<group>"; };
-		D12B34ED16CD5F8E0000F152 /* HOUCrashSimulatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HOUCrashSimulatorViewController.m; path = CrashSimulator/HOUCrashSimulatorViewController.m; sourceTree = "<group>"; };
-		D12B34F216CD5FC20000F152 /* HOUCrashSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HOUCrashSimulator.h; path = CrashSimulator/HOUCrashSimulator.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D12B34F316CD5FC20000F152 /* HOUCrashSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HOUCrashSimulator.m; path = CrashSimulator/HOUCrashSimulator.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D132857416E6A0EE002262E7 /* HOUCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HOUCrash.h; path = CrashSimulator/HOUCrash.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D132857516E6A0EE002262E7 /* HOUCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HOUCrash.m; path = CrashSimulator/HOUCrash.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D132857716E6A158002262E7 /* HOUCrashSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HOUCrashSection.h; path = CrashSimulator/HOUCrashSection.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D132857816E6A158002262E7 /* HOUCrashSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HOUCrashSection.m; path = CrashSimulator/HOUCrashSection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D132857A16E6AE8F002262E7 /* HOUCrashSimulator.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HOUCrashSimulator.storyboard; path = CrashSimulator/HOUCrashSimulator.storyboard; sourceTree = "<group>"; };
+		D191347A16E9378E003A74F6 /* HOUActionCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOUActionCrash.h; sourceTree = "<group>"; };
+		D191347B16E9378E003A74F6 /* HOUActionCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOUActionCrash.m; sourceTree = "<group>"; };
+		D191347C16E9378E003A74F6 /* HOUCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOUCrash.h; sourceTree = "<group>"; };
+		D191347D16E9378E003A74F6 /* HOUCrashSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOUCrashSection.h; sourceTree = "<group>"; };
+		D191347E16E9378E003A74F6 /* HOUCrashSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOUCrashSection.m; sourceTree = "<group>"; };
+		D191347F16E9378E003A74F6 /* HOUCrashSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOUCrashSimulator.h; sourceTree = "<group>"; };
+		D191348016E9378E003A74F6 /* HOUCrashSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOUCrashSimulator.m; sourceTree = "<group>"; };
+		D191348116E9378E003A74F6 /* HOUCrashSimulator.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HOUCrashSimulator.storyboard; sourceTree = "<group>"; };
+		D191348216E9378E003A74F6 /* HOUCrashSimulatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOUCrashSimulatorViewController.h; sourceTree = "<group>"; };
+		D191348316E9378E003A74F6 /* HOUCrashSimulatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOUCrashSimulatorViewController.m; sourceTree = "<group>"; };
+		D191348416E9378E003A74F6 /* HOUToggleableCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOUToggleableCrash.h; sourceTree = "<group>"; };
+		D191348516E9378E003A74F6 /* HOUToggleableCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOUToggleableCrash.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +74,7 @@
 		D12B34BC16CD5F2C0000F152 = {
 			isa = PBXGroup;
 			children = (
-				D12B34F116CD5FA50000F152 /* CrashSimulator */,
+				D191347916E9378E003A74F6 /* HOUCrashSimulator */,
 				D12B34CE16CD5F2C0000F152 /* CrashSimulatorDemo */,
 				D12B34C716CD5F2C0000F152 /* Frameworks */,
 				D12B34C616CD5F2C0000F152 /* Products */,
@@ -122,20 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D12B34F116CD5FA50000F152 /* CrashSimulator */ = {
+		D191347916E9378E003A74F6 /* HOUCrashSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				D132857A16E6AE8F002262E7 /* HOUCrashSimulator.storyboard */,
-				D12B34EC16CD5F8E0000F152 /* HOUCrashSimulatorViewController.h */,
-				D12B34ED16CD5F8E0000F152 /* HOUCrashSimulatorViewController.m */,
-				D12B34F216CD5FC20000F152 /* HOUCrashSimulator.h */,
-				D12B34F316CD5FC20000F152 /* HOUCrashSimulator.m */,
-				D132857716E6A158002262E7 /* HOUCrashSection.h */,
-				D132857816E6A158002262E7 /* HOUCrashSection.m */,
-				D132857416E6A0EE002262E7 /* HOUCrash.h */,
-				D132857516E6A0EE002262E7 /* HOUCrash.m */,
+				D191348116E9378E003A74F6 /* HOUCrashSimulator.storyboard */,
+				D191348216E9378E003A74F6 /* HOUCrashSimulatorViewController.h */,
+				D191348316E9378E003A74F6 /* HOUCrashSimulatorViewController.m */,
+				D191347F16E9378E003A74F6 /* HOUCrashSimulator.h */,
+				D191348016E9378E003A74F6 /* HOUCrashSimulator.m */,
+				D191347D16E9378E003A74F6 /* HOUCrashSection.h */,
+				D191347E16E9378E003A74F6 /* HOUCrashSection.m */,
+				D191347C16E9378E003A74F6 /* HOUCrash.h */,
+				D191347A16E9378E003A74F6 /* HOUActionCrash.h */,
+				D191347B16E9378E003A74F6 /* HOUActionCrash.m */,
+				D191348416E9378E003A74F6 /* HOUToggleableCrash.h */,
+				D191348516E9378E003A74F6 /* HOUToggleableCrash.m */,
 			);
-			name = CrashSimulator;
+			path = HOUCrashSimulator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +201,7 @@
 				D12B34DD16CD5F2C0000F152 /* Default@2x.png in Resources */,
 				D12B34DF16CD5F2C0000F152 /* Default-568h@2x.png in Resources */,
 				D12B34E216CD5F2C0000F152 /* MainStoryboard.storyboard in Resources */,
-				D132857B16E6AE8F002262E7 /* HOUCrashSimulator.storyboard in Resources */,
+				D191348916E9378E003A74F6 /* HOUCrashSimulator.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,10 +215,11 @@
 				D12B34D516CD5F2C0000F152 /* main.m in Sources */,
 				D12B34D916CD5F2C0000F152 /* AppDelegate.m in Sources */,
 				D12B34E516CD5F2C0000F152 /* ViewController.m in Sources */,
-				D12B34EF16CD5F8E0000F152 /* HOUCrashSimulatorViewController.m in Sources */,
-				D12B34F416CD5FC20000F152 /* HOUCrashSimulator.m in Sources */,
-				D132857616E6A0EE002262E7 /* HOUCrash.m in Sources */,
-				D132857916E6A158002262E7 /* HOUCrashSection.m in Sources */,
+				D191348616E9378E003A74F6 /* HOUActionCrash.m in Sources */,
+				D191348716E9378E003A74F6 /* HOUCrashSection.m in Sources */,
+				D191348816E9378E003A74F6 /* HOUCrashSimulator.m in Sources */,
+				D191348A16E9378E003A74F6 /* HOUCrashSimulatorViewController.m in Sources */,
+				D191348B16E9378E003A74F6 /* HOUToggleableCrash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

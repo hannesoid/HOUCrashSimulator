@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HOUCrash.h"
+
 typedef void(^HOUCrashBlock)(void);
 
-@interface HOUCrash : NSObject
-
-@property (nonatomic, copy) NSString *title;
-
-@property (nonatomic, copy) HOUCrashBlock crashBlock;
+@interface HOUActionCrash : NSObject<HOUCrash>
 
 - (id)initWithTitle: (NSString *) title crashBlock: (HOUCrashBlock) crashBlock;
+
+/**
+ * Calls the crashBlock provided on construction
+ */
+- (void)crash;
+
 @end

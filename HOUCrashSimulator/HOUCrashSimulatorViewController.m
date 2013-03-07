@@ -16,6 +16,11 @@
     CGFloat _maximizedHeight;
     CGFloat _maximizedAlpha;
     BOOL _maximized;
+    
+    CGSize _initialSize;
+    
+    CGFloat _maxWidthInRelationToContainer;
+    CGFloat _maxHeightInRelationToContainer;
 }
  
 @property (weak, nonatomic) IBOutlet UIButton *mainToggleButton;
@@ -44,17 +49,30 @@
     _minimizedAlpha = 0.6f;
     _maximizedAlpha = 1.f;
     
+    _maxWidthInRelationToContainer = 0.7f;
+    _maxHeightInRelationToContainer = 0.6f;
+    
+    _initialSize = self.view.bounds.size;
     
     [self adjustLayoutToMinimizedOrMaximizedAnimated:NO];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
-    
-    _maximizedHeight = floorf(MAX(parent.view.bounds.size.height*0.6f,self.view.bounds.size.height));
-    CGSize size = CGSizeMake(floorf(parent.view.bounds.size.width * 0.7f), _maximizedHeight);
-    CGPoint offset = CGPointMake((parent.view.bounds.size.width - size.width) / 2.f, 0.f);
-    self.view.frame = CGRectMake(offset.x, offset.y, size.width, _minimizedHeight);
-    
+    self.view.frame = [self niceFrameForContainingRect:parent.view.bounds]; // a recommended rect 
+}
+
+#pragma mark - Layout ...
+- (void)viewDidLayoutSubviews {
+    _maximizedHeight = floorf(MIN(self.view.superview.bounds.size.height*_maxHeightInRelationToContainer, _initialSize.height));
+    [self adjustLayoutToMinimizedOrMaximizedAnimated:NO];
+}
+
+- (CGRect) niceFrameForContainingRect: (CGRect) container {
+    _maximizedHeight = floorf(MIN(container.size.height*_maxHeightInRelationToContainer, _initialSize.height));
+    CGSize size = CGSizeMake(floorf(container.size.width * _maxWidthInRelationToContainer), _maximizedHeight);
+    CGPoint offset = CGPointMake((container.size.width - size.width) / 2.f, 0.f);
+    CGRect rect = CGRectMake(offset.x, offset.y, size.width, _minimizedHeight);
+    return rect;
 }
 
 #pragma mark - minimizing / maximizing
@@ -92,13 +110,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HOUCrashSection *section = ((HOUCrashSection *) self.crashSimulator.crashSections[indexPath.section]);
+    id<HOUCrash> crash = [self.crashSimulator crashAtIndexPath:indexPath];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"crashCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"crashCell"];
+    UITableViewCell *cell;
+
+    if ([crash isKindOfClass:[HOUActionCrash class]]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"crashCell"];
+    } else if ([crash isKindOfClass:[HOUToggleableCrash class]]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"toggleCell"];
+        BOOL currentlyEnabled = ((HOUToggleableCrash *) crash).enabled;
+        cell.accessoryType = currentlyEnabled ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     }
-    HOUCrash *crash = section.crashes[indexPath.row];
+    
     cell.textLabel.text = crash.title;
     
     return cell;
@@ -106,8 +129,16 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HOUCrash *crash = ((HOUCrashSection *) self.crashSimulator.crashSections[indexPath.section]).crashes[indexPath.row];
-    crash.crashBlock();
+    id<HOUCrash> crash = [self.crashSimulator crashAtIndexPath:indexPath];
+    if ([crash isKindOfClass:[HOUActionCrash class]]) {
+        [((HOUActionCrash *) crash) crash];
+    } else if ([crash isKindOfClass:[HOUToggleableCrash class]]) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        BOOL currentlyEnabled = ((HOUToggleableCrash *) crash).enabled;
+        BOOL enabled = !currentlyEnabled;
+        ((HOUToggleableCrash *) crash).enabled = enabled;        
+        cell.accessoryType = enabled ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    }
 }
 
 #pragma mark - Constructor

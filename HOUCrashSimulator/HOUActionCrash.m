@@ -6,9 +6,18 @@
 //  Copyright (c) 2013 Hannes Oud. All rights reserved.
 //
 
-#import "HOUCrash.h"
+#import "HOUActionCrash.h"
 
-@implementation HOUCrash
+@interface HOUActionCrash()
+
+@property (nonatomic, copy) HOUCrashBlock crashBlock;
+
+@end
+
+@implementation HOUActionCrash {
+    NSString *_title;
+}
+
 - (id)initWithTitle: (NSString *) title crashBlock: (HOUCrashBlock) crashBlock
 {
     self = [super init];
@@ -18,4 +27,13 @@
     }
     return self;
 }
+
+- (void) crash {
+    self.crashBlock();
+}
+
+- (NSString *)title {
+    return _title;
+}
+
 @end

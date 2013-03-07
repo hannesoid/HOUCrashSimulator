@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HOUCrashSection.h"
-#import "HOUCrash.h"
+#import "HOUActionCrash.h"
+#import "HOUToggleableCrash.h"
 
 @interface HOUCrashSimulator : NSObject
 
@@ -17,6 +18,8 @@
 @property (nonatomic, assign) BOOL keepRunningTimer;
 
 @property (strong, nonatomic) NSMutableArray *crashSections;
+
+- (id<HOUCrash>) crashAtIndexPath: (NSIndexPath *) indexPath;
 
 - (void)simulateSelectorException;
 

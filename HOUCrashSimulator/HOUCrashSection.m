@@ -9,6 +9,7 @@
 #import "HOUCrashSection.h"
 
 @implementation HOUCrashSection
+
 - (id)initWithTitle:(NSString *)title crashes: (NSArray *)crashes
 {
     self = [super init];
@@ -20,4 +21,5 @@
     
     return self;
 }
+
 @end

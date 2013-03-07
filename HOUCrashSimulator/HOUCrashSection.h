@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HOUCrash.h"
+#import "HOUActionCrash.h"
 
+/**
+ * Contains a title and an array intended for id<HOUCrash>es
+ */
 @interface HOUCrashSection : NSObject
 
 @property (nonatomic, strong) NSString *title;
